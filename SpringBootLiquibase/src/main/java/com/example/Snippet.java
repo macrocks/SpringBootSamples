@@ -35,7 +35,7 @@ public void doMigration(){
 
 	Database database = DatabaseFactory.getInstance().findCorrectDatabaseImplementation(new JdbcConnection(connection));
 
-	Liquibase liquibase = new liquibase.Liquibase("db/changelog/changelog.xml", new ClassLoaderResourceAccessor(), database);
+	Liquibase liquibase = new liquibase.Liquibase("db/changelog/db.changelog-master.yaml", new ClassLoaderResourceAccessor(), database);
 
 	//liquibase.getLog().setLogLevel(LogLevel.DEBUG);
 	liquibase.update(new Contexts(), new LabelExpression());
